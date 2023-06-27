@@ -3,16 +3,12 @@ package Payment;
 import java.util.ArrayList;
 
 public class Wallet {
-    private ArrayList<IChargeable> iChargeables;
+    private final ArrayList<IChargeable> iChargeables;
     private IChargeable selectedIChargeable;
 
-    public Wallet(ArrayList<IChargeable> iChargeables, IChargeable selectedIChargeable) {
-        this.iChargeables = iChargeables;
-        this.selectedIChargeable = selectedIChargeable;
-    }
-
-    public void setiChargeables(ArrayList<IChargeable> iChargeables) {
-        this.iChargeables = iChargeables;
+    public Wallet() {
+        this.iChargeables = new ArrayList<IChargeable>();
+        this.selectedIChargeable = null;
     }
 
     public void setSelectedIChargeable(IChargeable selectedIChargeable) {
@@ -23,7 +19,7 @@ public class Wallet {
         return selectedIChargeable;
     }
 
-    public ArrayList<IChargeable> getiChargeables() {
+    public ArrayList<IChargeable> getIChargeables() {
         return iChargeables;
     }
 

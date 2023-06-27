@@ -16,4 +16,10 @@ public class GiftCardTest {
         giftCard.getCharged(50.00);
         assertEquals(50.00, giftCard.getBalance(),0.0);
     }
+
+    @Test
+    public void canRejectPaymentIfInsufficientFunds(){
+        giftCard.getCharged(150.00);
+        assertEquals(100.00, giftCard.getBalance(),0.0);
+    }
 }

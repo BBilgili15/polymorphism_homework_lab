@@ -19,16 +19,15 @@ public class WalletTest {
 
     @Before
     public void before(){
-        ArrayList<IChargeable> iChargeables = new ArrayList<>();
+        wallet = new Wallet();
         giftCard = new GiftCard(100.00);
+        wallet.addNewIChargeable(giftCard);
         giftCard1 = new GiftCard(100.00);
-        iChargeables.add(giftCard);
         creditCard = new CreditCard(12345, 0227, 123, 1000.00);
-        iChargeables.add(creditCard);
+        wallet.addNewIChargeable(creditCard);
         debitCard = new DebitCard(12345, 0227, 123, 12345, 0233);
-        iChargeables.add(debitCard);
-        wallet = new Wallet(iChargeables, debitCard);
-
+        wallet.addNewIChargeable(debitCard);
+        wallet.setSelectedIChargeable(debitCard);
     }
     @Test
     public void canChangeSelectedIChargeable(){
@@ -45,6 +44,6 @@ public class WalletTest {
     @Test
     public void canAddNewIChargeable(){
         wallet.addNewIChargeable(giftCard1);
-        assertEquals(4, wallet.getiChargeables().size());
+        assertEquals(4, wallet.getIChargeables().size());
     }
 }

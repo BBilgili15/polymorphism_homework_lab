@@ -17,6 +17,5 @@ public class DebitCardTest {
         assertEquals("You've been charged £2.0", debitCard.getCharged(2.0));
     }
 
-
 }
 

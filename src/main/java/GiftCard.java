@@ -8,8 +8,12 @@ public class GiftCard implements IChargeable {
     }
 
     public String getCharged(double price){
-        this.balance -= price;
-        return "You've paid";
+        if (this.balance > price) {
+            this.balance -= price;
+            return "Payment successful";
+        } else {
+            return "Insufficient funds.";
+        }
     }
 
     public double getBalance() {

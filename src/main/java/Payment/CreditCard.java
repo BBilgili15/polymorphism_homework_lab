@@ -10,13 +10,15 @@ public class CreditCard extends BankCard implements IChargeable{
 
         public String getCharged(double price){
             double priceWithPercentage = price * 1.01;
-            this.availableCredit -= priceWithPercentage;
-            return "You've been charged £" + priceWithPercentage;
+            if (priceWithPercentage < availableCredit) {
+                this.availableCredit -= priceWithPercentage;
+                return "You've been charged £" + priceWithPercentage + ". £" + availableCredit + " remaining balance.";
+            } else {
+                return "Insufficient credit.";
+            }
         }
 
-//        public void addToWallet(Wallet wallet){
-//
-//        }
+
 
     }
 

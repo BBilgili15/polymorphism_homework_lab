@@ -17,6 +17,11 @@ public class CreditCardTest {
 
     @Test
     public void canBeCharged(){
-        assertEquals("You've been charged £2.02", creditCard.getCharged(2.0));
+        assertEquals("You've been charged £2.02. £997.98 remaining balance.", creditCard.getCharged(2.0));
+    }
+
+    @Test
+    public void canBeRejectedWithInsufficientCredit(){
+        assertEquals("Insufficient credit.", creditCard.getCharged(2000.0));
     }
 }
